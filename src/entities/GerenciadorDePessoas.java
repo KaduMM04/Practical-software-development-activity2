@@ -15,6 +15,40 @@ public class GerenciadorDePessoas {
 		return list;
 	}
 	
+	 public static List<Pessoa> getProfessores() {
+	        List<Pessoa> tempList = new ArrayList<>();
+
+	        for(Pessoa tempP: list) {
+	            if (tempP instanceof Professor) {
+	                tempList.add(tempP);
+	            }
+	        }
+
+	        return tempList;
+	    }
+	 public static List<Pessoa> getAlunos() {
+	        List<Pessoa> tempList = new ArrayList<>();
+
+	        for(Pessoa tempA: list) {
+	            if (tempA instanceof Aluno) {
+	                tempList.add(tempA);
+	            }
+	        }
+
+	        return tempList;
+	    }
+	 public static List<Pessoa> getBolsistas() {
+	        List<Pessoa> tempList = new ArrayList<>();
+
+	        for(Pessoa tempB: list) {
+	            if (tempB instanceof Bolsista) {
+	                tempList.add(tempB);
+	            }
+	        }
+
+	        return tempList;
+	    }
+	
 	public static boolean excluir(String name) {
 
         for (Pessoa tempP : list){
@@ -57,7 +91,7 @@ public class GerenciadorDePessoas {
 		return false;	
 		
 	}
-	public static boolean editarPessoa(String searchName, String name, Integer idade, String doc, Double novoV) {
+	public static boolean editarBolsista(String searchName, String name, Integer idade, String doc, Double novoV) {
 		for(Pessoa p : list) {
 			if (p instanceof Bolsista && p.getName().equals(searchName)) {
 				Bolsista bol = (Bolsista) p;

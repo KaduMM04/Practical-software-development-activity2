@@ -111,10 +111,25 @@ public class MenuCadastro {
 						break;
 					}
 					
-					System.out.println("\nTodas as pessoas cadastradas: ");
-					for (Pessoa tempP : GerenciadorDePessoas.allList()) {
-						System.out.println(tempP);
+					System.out.print("\nDigite (p) para professor, (a) para aluno e (b) para bolsista ou (t) para imprimir todos: ");
+					char j = sc.next().charAt(0);
+					sc.nextLine();
+					if(j == 'p') {
+						System.out.println("\nTodos os professores cadastradas: ");
+						System.out.println(GerenciadorDePessoas.getProfessores());
+					} else if (j == 'a'){
+						System.out.println("\nTodos os Alunos cadastradas: ");
+						System.out.println(GerenciadorDePessoas.getAlunos());
+					} else if (j == 'b'){
+						System.out.println("\nTodos os Bolsistas cadastradas: ");
+						System.out.println(GerenciadorDePessoas.getBolsistas());
+					} else if(j =='t'){
+						System.out.println("\nTodas as pessoas cadastradas: ");
+						for (Pessoa tempP : GerenciadorDePessoas.allList()) {
+							System.out.println(tempP);
+						}
 					}
+					
 					
 					break;
 					
@@ -151,7 +166,7 @@ public class MenuCadastro {
 							System.out.print("Digite o valor da bolsa: ");
 							double novoV = sc.nextDouble();
 							sc.nextLine();
-							GerenciadorDePessoas.editarPessoa(searchName, novoNome, novaIdade, doc, novoV);
+							GerenciadorDePessoas.editarBolsista(searchName, novoNome, novaIdade, doc, novoV);
 						} else {
 							GerenciadorDePessoas.editarPessoa(searchName, novoNome, novaIdade, doc);
 						}
